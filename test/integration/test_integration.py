@@ -48,6 +48,7 @@ class TestIntegration(object):
             port=PORT,
             username='admin',
             password='password',
+            ssl=False
         )
 
     def teardown(self):

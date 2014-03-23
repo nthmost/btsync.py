@@ -15,6 +15,7 @@ class TestClient(object):
     PORT = 1106
     USERNAME = 'admin'
     PASSWORD = 'password'
+    SSL = False
 
     def _patch(self, *args, **kwargs):
         patcher = patch(*args, **kwargs)
@@ -27,6 +28,7 @@ class TestClient(object):
             port=self.PORT,
             username=self.USERNAME,
             password=self.PASSWORD,
+            ssl=SSL,
         )
 
     def _mock_token(self, token=u'T'):

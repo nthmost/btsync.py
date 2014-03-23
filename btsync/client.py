@@ -26,6 +26,7 @@ class Client(object):
         self._port = kwargs.pop('port', '8888')
         self._username = kwargs.pop('username', 'admin')
         self._password = kwargs.pop('password', 'password')
+        self._ssl = kwargs.pop('ssl', False)
         self._session = self._authenticate()
 
     def _make_request(self, **kwargs):
@@ -40,7 +41,8 @@ class Client(object):
         if with_token:
             params['token'] = self._token
 
-        url = 'http://{host}:{port}/gui/{endpoint}?{qs}'.format(
+        url = 'http{s}://{host}:{port}/gui/{endpoint}?{qs}'.format(
+            s='s' if self._ssl else '',
             host=self._host,
             port=self._port,
             endpoint=endpoint,
