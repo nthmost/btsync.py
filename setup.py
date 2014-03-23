@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
 
-
-version = '0.9.7'
+version = '0.9.7.1-nthmost'
 
 setup(name='btsync.py',
       version=version,
